@@ -28,27 +28,25 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
+import cv2
 
 
-class app():
+class app:
     def __init__(self, root):
-        self.width = 160
-        self.height = 160
-        self.imgpath = 'datahome_zhaji_20181204_暗室_8-44_8_gray_25.jpg'
-        img = Image.open(self.imgpath)
-        imga = ImageTk.PhotoImage(img.resize((self.width, self.height)))
-        # imga = tk.PhotoImage(self.imgpath)
-        self.label = ttk.Label(root, image=imga)
-        self.label.grid(row=0, column=0)
+        self.img = Image.open('datahome_zhaji_20181204_8-44_8_gray_25.jpg')  # 打开图片
+        self.photo = ImageTk.PhotoImage(self.img)  # 用PIL模块的PhotoImage打开
+        self.imglabel = ttk.Label(root, image=self.photo)
+        self.imglabel.grid(row=0, column=0, columnspan=3)
+        print('app')
+        print(self.img)
 
-        self.but = ttk.Button(root, text='a')
-        self.but.grid(row=0, column=1)
+
+        # self.but = ttk.Button(root, text='a')
+        # self.but.grid(row=0, column=1)
 
 
 if __name__ == '__main__':
     root = tk.Tk()
-    root.title('EX')
-    root.geometry('850x850')
-    # root.resizable(width=False, height=False)  # 是否允许改变大小
+    root.title('python')
     app(root)
     root.mainloop()
