@@ -1,4 +1,7 @@
 S:\ClusterFaceData\datahome_zhaji_20181204_暗室_8-44_17_\datahome_zhaji_20181204_暗室_8-44_17_gray_280.jpg
 S:\ClusterFaceData\datahome_zhaji_20181204_室内_5-24_8_\datahome_zhaji_20181204_室内_5-24_8_gray_230.jpg
 S:\ClusterFaceData\datahome_zhaji_20181204_窗户背光_26-62_44_\datahome_zhaji_20181204_窗户背光_26-62_44_gray_25.jpg
-S:\ClusterFaceData\datahome_zhaji_20181204_窗户背光_26-62_45_\datahome_zhaji_20181204_窗户背光_26-62_45_gray_422.jpg
+S:\ClusterFaceData\datahome_zhaji_20181204_室内_5-24_19_\datahome_zhaji_20181204_室内_5-24_19_gray_129.jpg
+S:\ClusterFaceData\datahome_zhaji_20181204_走廊背光_14-110_50_\datahome_zhaji_20181204_走廊背光_14-110_50_gray_57.jpg
+S:\ClusterFaceData\datahome_zhaji_20181204_室外_15-111_51_\datahome_zhaji_20181204_室外_15-111_51_gray_503.jpg
+
