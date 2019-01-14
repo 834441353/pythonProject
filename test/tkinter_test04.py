@@ -69,7 +69,7 @@ class App(tk.Frame):
             self.labelarr.append(label)
             self.labelarr[i]['image'] = self.imgpath[i]
             self.labelarr[i].grid(row=0, column=i)
-            self.labelarr[i].bind("<Button-1>", self.handlerAdaptor(self.callback, a=i))
+            self.labelarr[i].bind("<Button-1>", self.handlerAdaptor(self.callback, a=a))
 
     def handlerAdaptor(self, fun, **kwds):
         return lambda event, fun=fun, kwds=kwds: fun(event, **kwds)
