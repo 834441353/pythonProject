@@ -46,7 +46,7 @@
 #         # but2.grid(row=0, column=2)
 #         # but3 = ttk.Button(root, text=str(3))
 #         # but3.grid(row=0, column=3)
-#         # but4 = ttk.Button(root, text=str(4))
+#         # but4 = ttk.Button(root, text=str(4))l
 #         # but4.grid(row=0, column=4)
 #
 #         print(self.img)

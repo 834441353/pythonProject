@@ -170,8 +170,8 @@ class ImageProcess:
 
         self.ckbArray = []
         self.ckbVarArray = []
-        F
         # self.btArray = []
+        self.labelArray = []
 
         self.curSinglePeopleCluster = []
         self.haveBeenSavedIdx = []
