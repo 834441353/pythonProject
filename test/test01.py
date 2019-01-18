@@ -56,11 +56,13 @@
 #             print(i)
 #             self.bunarr.append(but)
 #             self.bunarr[i].config(command=lambda: self.butc(i))
-#             self.bunarr[i].grid(row=0, column=i+1)
+#             self.bunarr[i].grid(row=0, column=i + 1)
 #         # root.mainloop()
 #
 #     def butc(self, num):
-#         self.mymessage(num)
+#         # self.mymessage(num)
+#         msg = tk.Message(root, text='a')
+#         msg.grid()
 #
 #     def mymessage(self, msg):
 #         messagebox.showinfo('button num', msg)
@@ -72,38 +74,36 @@
 #     app(root)
 #     root.mainloop()
 
-#
 # import tkinter as tk
 # from tkinter import messagebox
 #
 # root = tk.Tk()
 #
 # def on_closing():
+#
 #     if messagebox.askokcancel("Quit", "Do you want to quit?"):
 #         root.destroy()
 #
 # root.protocol("WM_DELETE_WINDOW", on_closing)
 # root.mainloop()
 
-from tkinter import *
-
-root = Tk()
-
-
-def key(event):
-    print("pressed", repr(event.char))
-
-
-def callback(event):
-    frame.focus_set()
-    print("clicked at", event.x, event.y)
-
-
-frame = Frame(root, width=100, height=100)
-frame.bind("<Key>", key)
-frame.bind("<Button-1>", callback)
-frame.pack()
-
-root.mainloop()
-
-
+# from tkinter import *
+#
+# root = Tk()
+#
+#
+# def key(event):
+#     print("pressed", repr(event.char))
+#
+#
+# def callback(event):
+#     frame.focus_set()
+#     print("clicked at", event.x, event.y)
+#
+#
+# frame = Frame(root, width=100, height=100)
+# frame.bind("<Key>", key)
+# frame.bind("<Button-1>", callback)
+# frame.pack()
+#
+# root.mainloop()
