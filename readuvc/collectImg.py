@@ -32,14 +32,16 @@ def main(outpath):
         if k == ord('q'):
             break
         elif k == ord('c'):
+            print('c')
             startflag = True
             saveCount = 0
             page += 1
             savepicpath1 = os.path.join(savepicpath, "b_%d" % page)
             if not os.path.exists(savepicpath1):
                 os.makedirs(savepicpath1)
-            print('c')
+
         elif k == ord('z'):
+            print('z')
             startflag = True
             saveCount = 0
             book += 1
@@ -50,11 +52,11 @@ def main(outpath):
             savepicpath1 = os.path.join(savepicpath, "b_%d" % page)
             if not os.path.exists(savepicpath1):
                 os.makedirs(savepicpath1)
-            print('z')
+
         if saveCount > 60:
             startflag = False
             head = True
-
+            print('over')
         if startflag:
             saveCount += 1
             if frame is None:
