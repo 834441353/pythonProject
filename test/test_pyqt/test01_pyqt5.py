@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 from test01_pyqt5_ui import Ui_MainWindow
-from test01_pyqt5_ui02 import Ui_childFrom
+from test_pyqt.test01_pyqt5_ui02 import Ui_childFrom
 
 
 class App(QMainWindow, Ui_MainWindow):
@@ -13,9 +13,7 @@ class App(QMainWindow, Ui_MainWindow):
 
     def childshow(self):
         self.gridLayout_2.addWidget(self.child)
-
         self.child.show()
-
         print('a')
 
 

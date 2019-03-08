@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_childFrom(object):
     def setupUi(self, childFrom):
         childFrom.setObjectName("childFrom")
-        childFrom.resize(274, 210)
+        childFrom.resize(627, 642)
         self.verticalLayout = QtWidgets.QVBoxLayout(childFrom)
         self.verticalLayout.setObjectName("verticalLayout")
         self.textEdit = QtWidgets.QTextEdit(childFrom)
@@ -29,5 +29,7 @@ class Ui_childFrom(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">aa+bb</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/pic/cat01.jpg\" /></p></body></html>"))
 
+import apprcc_rc

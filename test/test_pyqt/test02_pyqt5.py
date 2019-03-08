@@ -16,7 +16,7 @@ class App(QtWidgets.QMainWindow):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
-        # self.statusBar().showMessage('asdf')
+        self.statusBar().showMessage('asdf')
         self.button1 = QtWidgets.QPushButton('botton1', self)
         self.button1.setToolTip('this is a button called button1')
         self.setObjectName('button1')
