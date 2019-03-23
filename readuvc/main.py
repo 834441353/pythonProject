@@ -1,3 +1,4 @@
+from VideoCapture import Device
 import cv2
 import numpy
 import os
@@ -8,18 +9,15 @@ father_path = os.path.abspath(os.path.dirname(path0) + os.path.sep + ".")
 # cap = Device(0)
 # cap.setResolution(1280, 720)
 
-input_movie_1 = cv2.VideoCapture(0)
-input_movie_2 = cv2.VideoCapture(1)
-input_movie_1.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-input_movie_1.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-input_movie_2.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-input_movie_2.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+input_movie = cv2.VideoCapture(1)
+input_movie.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+input_movie.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 fps = 1  # cap.get(cv2.CAP_PROP_FPS)
 print(fps)
 
 # saveimagepath = os.path.join(father_path, 'collectImagequick')
-saveimagepath = './collectImage_cg'
+saveimagepath = './collectImage'
 if not os.path.exists(saveimagepath):
     os.mkdir(saveimagepath)
     # os.makedirs()
@@ -59,30 +57,28 @@ def savePicmethod():
         # frame1 = cap1.getImage()
         # frame1 = cv2.cvtColor(numpy.asarray(frame1), cv2.COLOR_RGB2BGR)
         # frame1or = frame1
-        ret_1, frame_1 = input_movie_1.read()
-        frame_1 = cv2.flip(frame_1, 1)
-        ret_2, frame_2 = input_movie_2.read()
-        frame_2 = cv2.flip(frame_2, 1)
+        ret, frame = input_movie.read()
+        frame = cv2.flip(frame, 1)
         # gray_frame = cv2.cvtColor(frame_1, cv2.COLOR_RGB2BGR)
 
 
-        save_color_path = os.path.join(saveimagepath, '%s/color' % imagepathnum)
+        save_color_path = os.path.join(saveimagepath, '%s/' % imagepathnum)
         if not os.path.exists(save_color_path):
             os.makedirs(save_color_path)
-        save_gray_path = os.path.join(saveimagepath, '%s/gray' % imagepathnum)
-        if not os.path.exists(save_gray_path):
-            os.mkdir(save_gray_path)
+        # save_gray_path = os.path.join(saveimagepath, '%s/gray' % imagepathnum)
+        # if not os.path.exists(save_gray_path):
+        #     os.mkdir(save_gray_path)
 
         color_file = os.path.join(save_color_path, "%s.jpg" % pic_num)
-        gray_file = os.path.join(save_gray_path, "%s.jpg" % pic_num)
+        # gray_file = os.path.join(save_gray_path, "%s.jpg" % pic_num)
 
-        cv2.imwrite(color_file, frame_1)
-        cv2.imshow('clor', frame_1)
-        cv2.imshow('gray', frame_2)
-        cv2.waitKey(3)  #
-        cv2.imwrite(gray_file, frame_2)
+        cv2.imwrite(color_file, frame)
+        cv2.imshow('clor', frame)
+        # cv2.imshow('gray', frame1)
+        cv2.waitKey(500)  #
+        # cv2.imwrite(gray_file, frame1)
         pic_num += 1
-        if pic_num > 300:
+        if pic_num > 10:
             pic_num = 0
             print('collect num %s OK!' % imagepathnum)
             print('\a')
