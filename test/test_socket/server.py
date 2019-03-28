@@ -1,7 +1,8 @@
 import sys
 import socket
 
-# 创建scoket对象
+# 创建scoket对象  socket.AF_INET指的是用IPv4协议    socket.SOCK_STREAM指的是使用面向流的TCP协议，
+#                                                  socket.SOCK_DGRAM指的是面向无链接的UDP协议
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # 获取本地主机名
