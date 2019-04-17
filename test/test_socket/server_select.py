@@ -12,8 +12,14 @@ sk1.setblocking(0)
 inputs = [sk1, ]
 while True:
     realable_list, writeable_list, error_list = select.select(inputs, [], inputs, 1)
+    print('realabel_list : ', realable_list)
+    print('writeable_list : ', writeable_list)
+    print('error_list : ', error_list)
+
     for r in realable_list:
         # 当客户端第一次连接服务端时
+        print('r : ', r)
+        print('sk1 : ', sk1)
         if sk1 == r:
             print('accept')
             request, address = r.accept()
