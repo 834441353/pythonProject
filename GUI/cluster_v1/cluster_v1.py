@@ -7,17 +7,23 @@ from multiprocessing import Pool
 
 
 def mv(path1, path2):
-    # print('mv')
-    os.rename(path1, path2)
-    print('mv ' + path1 + ' ' + path2)
-    # time.sleep(3)
+    try:
+        # print('mv')
+        os.rename(path1, path2)
+        print('mv ' + path1 + ' ' + path2)
+        # time.sleep(3)
+    except IOError as e:
+        print(e)
 
 
 def rm(path):
-    # print('rm')
-    os.remove(path)
-    print('rm ' + path)
-    # time.sleep(3)
+    try:
+        # print('rm')
+        os.remove(path)
+        print('rm ' + path)
+        # time.sleep(3)
+    except IOError as e:
+        print(e)
 
 
 class AppMain(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -121,18 +127,27 @@ class AppMain(QtWidgets.QMainWindow, Ui_MainWindow):
         path = os.path.join(self.dir, str(self.dirlist[self.tag]))
         a = self.idtext1.text()
         b = self.idtext2.text()
-        if a == self.dirlist[self.tag]:
+        d = ''
+        if str(a) == str(self.dirlist[self.tag]):
             c = b
+            d = a
+            # print(1)
         else:
             c = a
+            d = b
+            # print(2)
+            # print(self.dirlist[self.tag])
+
         becppath = os.path.join(self.dir, str(c))
-        cpfilelist = os.listdir(path)
+        cpfilelist = os.listdir(os.path.join(self.dir, str(d)))
+        # print(str(d)+'---'+str(c))
         cpfilelistlen = len(cpfilelist)
         for i in range(cpfilelistlen):
             cpfile = os.path.join(path, cpfilelist[i])
             becppathed = os.path.join(becppath, cpfilelist[i])
             # print(becppathed)
             # command = 'mv ' + cpfile + ' ' + becppath
+            # print(cpfile + '-----------' + becppathed)
             self.pool.apply_async(mv, (cpfile, becppathed,))
         if self.nextflag == 1:
             self.nextflag = 0
@@ -165,14 +180,12 @@ class AppMain(QtWidgets.QMainWindow, Ui_MainWindow):
         self.nextflag = 1
         self.loadimg1()
 
-
     def id2loadOnclick(self):
         print('id2loadOnclick')
         a = self.idtext2.text()
         self.tag = self.dirlist.index(int(a))
         self.nextflag = 0
         self.loadimg2()
-
 
     def id1delOnclick(self):
         a = self.idtext1.text()
