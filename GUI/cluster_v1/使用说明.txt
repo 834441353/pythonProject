@@ -1,0 +1,31 @@
+环境：
+	python3.6
+	pip install opencv-python
+	pip install PyQt5
+	pip install PyQt5-tools
+
+运行:
+	win+r输入cmd
+	python cluster_v1.py
+
+使用:
+	1.点击菜单栏 file->open选择文件夹'dir2'
+	文件夹结构：dir1-[dir2-[dir3-[xx.jpg
+								[xx.jpg
+								[...
+						  [dir4-[xx.jpg
+								[xx.jpg
+								[...
+						  [dir5-[xx.jpg
+								[xx.jpg
+								[...
+						  [...
+	2.观察左边3张图片和右边3张图片：
+		同一人->点击 'copy'
+		不同人->点击 'next'
+		无人脸->点击对应图片上方的 'del'
+
+
+注：文件操作属于异步操作，界面中的操作结束后文件操作结束可能还需要一段时间。
+	当所有文件筛选完成后，观察cmd界面中是否还在打印信息，等无打印时在关闭程序。
+		
