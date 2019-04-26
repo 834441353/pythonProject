@@ -14,6 +14,8 @@ def mv(path1, path2):
         # time.sleep(3)
     except IOError as e:
         print(e)
+        print('rm ' + path1)
+        os.remove(path1)
 
 
 def rm(path):
