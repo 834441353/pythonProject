@@ -8,6 +8,7 @@ import cv2
 import dlib
 import detect_face
 
+
 def to_rgb(img):
     w, h = img.shape
     ret = np.empty((w, h, 3), dtype=np.uint8)
@@ -105,13 +106,14 @@ class MtcnnDlib():
         else:
             return None, None
 
+
 if __name__ == '__main__':
 
     tface = MtcnnDlib()
 
-    img,imgcopy = tface.detectFeature('./data_3.bmp')
+    img, imgcopy = tface.detectFeature('./data_6.bmp')
     if img is not None:
-        cv2.imshow('mtcnn img',img)
-        cv2.imshow('dlib img',imgcopy)
+        cv2.imshow('mtcnn img', img)
+        cv2.imshow('dlib img', imgcopy)
         cv2.waitKey(0)
     del tface
