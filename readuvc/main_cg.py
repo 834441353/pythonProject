@@ -8,8 +8,12 @@ father_path = os.path.abspath(os.path.dirname(path0) + os.path.sep + ".")
 # cap = Device(0)
 # cap.setResolution(1280, 720)
 
-input_movie_1 = cv2.VideoCapture(0)
-input_movie_2 = cv2.VideoCapture(1)
+input_movie_1 = cv2.VideoCapture(1)
+input_movie_2 = cv2.VideoCapture(0)
+if not input_movie_1.isOpened():
+    print("camera1 canot open")
+if not input_movie_2.isOpened():
+    print("camera2 canot open")
 input_movie_1.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 input_movie_1.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 input_movie_2.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
@@ -73,13 +77,18 @@ def savePicmethod():
         if not os.path.exists(save_gray_path):
             os.mkdir(save_gray_path)
 
-        color_file = os.path.join(save_color_path, "%s.jpg" % pic_num)
-        gray_file = os.path.join(save_gray_path, "%s.jpg" % pic_num)
+        color_file = os.path.join(save_color_path, "%s.bmp" % pic_num)
+        gray_file = os.path.join(save_gray_path, "%s.bmp" % pic_num)
 
+        if pic_num == 0:
+            pic_num+=1
+            continue
+        # cv2.imwrite(color_file, frame_1,[int(cv2.IMWRITE_JPEG_QUALITY),100])
         cv2.imwrite(color_file, frame_1)
         cv2.imshow('clor', frame_1)
         cv2.imshow('gray', frame_2)
         cv2.waitKey(3)  #
+        # cv2.imwrite(gray_file, frame_2,[int(cv2.IMWRITE_JPEG_QUALITY),100])
         cv2.imwrite(gray_file, frame_2)
         pic_num += 1
         if pic_num > 300:
@@ -87,6 +96,8 @@ def savePicmethod():
             print('collect num %s OK!' % imagepathnum)
             print('\a')
             imagepathnum += 1
+            #input_movie_1.release()
+            #input_movie_2.release()
             break
 
 
@@ -97,6 +108,8 @@ def OnMouseAction(event, x, y, flags, param):
     global closeflag
     if event == cv2.EVENT_LBUTTONDOWN:
         print('\a')
+        #input_movie_1.open()
+        #input_movie_2.open()
         savePicmethod()
         print("左键点击")
     elif event == cv2.EVENT_RBUTTONDOWN:
