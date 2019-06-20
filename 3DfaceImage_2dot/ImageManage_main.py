@@ -83,7 +83,8 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
         # print(self.points)
 
     def nextdir(self):
-        self.tagfoldernum = int(self.tagfoldernum) + 1
+        if self.tagfoldernum != self.rootpathlistLen:
+            self.tagfoldernum = int(self.tagfoldernum) + 1
         if self.tagfoldernum + 1 > self.rootpathlistLen:
             print('over')
             QtWidgets.QMessageBox.information(self, '提示', '标注完毕')
@@ -132,18 +133,12 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
     def OnMouseAction(self, event, x, y, flags, param):
         if event == cv2.EVENT_LBUTTONDBLCLK:
             self.lcbutton(x, y)
-            # cv2.circle(self.beingimgcopy, (x, y), 1, (255, 0, 0), -1)
-            # self.drawcircle(self.beingimgcopy, self.x, self.y)
         elif event == cv2.EVENT_LBUTTONDOWN:
-            # cv2.circle(self.beingimgcopy, (x, y), 1, (255, 0, 0), -1)
             self.lbutton(x, y)
         elif event == cv2.EVENT_RBUTTONDOWN:
             self.rbutton(x, y)
 
-            # self.drawcircle(self.beingimgcopy, self.x, self.y)
-
     def lbutton(self, x, y):
-        # cv2.circle(self.beingimgcopy, (x, y), 1, (255, 0, 0), -1)
         if self.puttype == 2:
             self.puttype = 1
             self.historytem[self.tema] = [x, y]
@@ -328,9 +323,6 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
                 continue
             cv2.circle(self.beingimgcopy, (a[0], a[1]), 2, (255, 0, 0), -1)
             cv2.putText(self.beingimgcopy, "%d" % (i), (a[0], a[1]), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (255, 0, 0))
-
-    # cv2.circle(img, (x, y), 3, (255, 0, 0), -1)
-    # self.labelshowpic(self.picshowLabel, img)
 
     def fixOnclicked(self):
         a = 1

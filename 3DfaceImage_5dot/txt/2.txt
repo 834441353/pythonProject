@@ -1,1 +1,1 @@
-F:\demores_s\pythonProject\3DfaceImage2dot_v1\sampletestdata2\2\color\data_3.bmp 180 223 228 228F:\demores_s\pythonProject\3DfaceImage2dot_v1\sampletestdata2\2\gray\data_1.bmp 177 236 222 229
+F:\demores_s\pythonProject\3DfaceImage_5dot\sampletestdata2\2\color\data_3.bmp 0 0 0 0 0 0 0 0 0 0F:\demores_s\pythonProject\3DfaceImage_5dot\sampletestdata2\2\gray\data_1.bmp 177 236 222 229 193 241 180 281 216 275
