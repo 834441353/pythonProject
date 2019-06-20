@@ -22,18 +22,32 @@ class testModule():
             lines = fb.readlines()
             for j in range(len(lines)):  # 单个txt文件单行为j
                 self.piccontext = lines[j].strip().split(' ')
+                # print(self.piccontext)
                 self.showpic()
+            with open(txtfile, 'w') as fa:
+
+                for z in self.filecontext:
+                    souce = z[0] + ' '+z[1]+ ' '+z[2]+ ' '+z[3]+ ' '+z[4]+'\n'
+                    # print(souce)
+                    fa.writelines(souce)
+
 
     def showpic(self):
         picpath = self.piccontext[0]
         feature = []
         feature.append(self.piccontext[1:3])
         feature.append(self.piccontext[3:])
-        print('-----')
+        # print('-----')
         pic = self.drawcircle(picpath, feature)
         cv2.namedWindow(picpath, 0)
+        # cv2.setMouseCallback(picpath, self.OnMouseAction)
         cv2.imshow(picpath, pic)
-        cv2.waitKey(0)
+        key = cv2.waitKey(0)
+        if key == 32:#keyword = space  保存
+            self.filecontext.append(self.piccontext)
+        elif key == 48:#keyword = 0 放弃
+            self.piccontext = []
+
         cv2.destroyAllWindows()
 
     def drawcircle(self, picpath, feature):
