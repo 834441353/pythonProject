@@ -53,6 +53,7 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
         self.tagfolderLabel.setText(str(self.tagfoldernum))
         c = os.path.join(self.facePath, self.rootpathlist[int(self.tagfoldernum)])
         self.typefolderlsit = os.listdir(c)
+        print(self.typefolderlsit)
         for i in self.typefolderlsit:
             tempath = os.path.join(self.facePath, self.rootpathlist[int(self.tagfoldernum)], i)
             a = os.listdir(tempath)
@@ -68,6 +69,7 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
 
     def startOnclicked(self):
         if self.picpath == []:
+            QtWidgets.QMessageBox.critical(self, '错误', '请加载文件夹')
             return 0
         self.tagpicnum = 0
         self.getpoint()
@@ -101,12 +103,18 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
             swidget.setPixmap(QtGui.QPixmap.fromImage(QtImg))
 
     def testOnclicked(self):
-        ImageManage_test.testModule(self.txtpath)
+        atest = ImageManage_test.testModule(self.txtpath)
+        a = atest.loadtxt()
+        if a == 0:
+            QtWidgets.QMessageBox.critical(self, '错误', 'txt文件异常')
 
     def saveOnclicked(self):
         print('save')
 
     def skipOnclicked(self):
+        if self.picpath == []:
+            QtWidgets.QMessageBox.critical(self, '错误', '请加载文件夹')
+            return 0
         self.tagpicnum += 1
         self.historytem = [[0, 0], [0, 0]]
 
@@ -316,6 +324,9 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
             cv2.putText(self.beingimgcopy, "%d" % (i), (a[0], a[1]), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (255, 0, 0))
 
     def fixOnclicked(self):
+        if self.picpath == []:
+            QtWidgets.QMessageBox.critical(self, '错误', '请加载文件夹')
+            return 0
         a = 1
         self.beingimgcopy = self.beingimg.copy()
         closeflag = 1
@@ -354,6 +365,9 @@ class ImageManageMain(QtWidgets.QMainWindow, ImageManage_main_ui.Ui_MainWindow):
             self.labelshowpic(self.picshowLabel, tempic)
 
     def nextOnclicked(self):
+        if self.picpath == []:
+            QtWidgets.QMessageBox.critical(self, '错误', '请加载文件夹')
+            return 0
         self.tagpicnum += 1
         if self.historytem != [[0, 0], [0, 0]]:
             self.facefeature.append(

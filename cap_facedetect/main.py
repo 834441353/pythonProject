@@ -67,10 +67,10 @@ class MTCNN_Face():
 if __name__ == '__main__':
     cv2.namedWindow("camera", 1)
 
-    video = "http://admin:admin@192.168.1.110:8081/"
+    # video = "http://admin:admin@192.168.3.6:8081/"
     # http: // [fe80::fc8c: c9ff:fee3: 4c1f]:8081
 
-    # video = "http://admin:admin@[fe80::fc8c:c9ff:fee3:4c1f]:8081"
+    video = "http://admin:admin@[fe80::8f3:c17b:aa74:556a]:8081"
     capture = cv2.VideoCapture(video)
 
     print(capture)

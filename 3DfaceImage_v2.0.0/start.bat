@@ -1,0 +1,2 @@
+python ImageManage_main.py
+pause
